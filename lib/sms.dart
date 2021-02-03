@@ -361,7 +361,13 @@ class SmsSender {
     return msg;
   }
 
-  Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
+  /// Create a stream that sender delivery SMS
+  Stream<SmsMessage> get onSmsDelivered {
+    return onSmsDelivered;
+
+  }
+
+  //Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
 
   void _onSmsStateChanged(dynamic stateChange) {
     int id = stateChange['sentId'];
