@@ -341,7 +341,7 @@ class SmsSender {
       }
       return null;
     }
-
+    
     msg.state = SmsMessageState.Sending;
     Map map = msg.toMap;
     this._sentMessages.putIfAbsent(this._sentId, () => msg);
@@ -378,7 +378,6 @@ class SmsSender {
           {
             _sentMessages[id].state = SmsMessageState.Sent;
             _deliveredStreamController.add(_sentMessages[id]);
-              _sentMessages.remove(id);
             break;
           }
         case 'delivered':
