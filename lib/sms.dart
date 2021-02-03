@@ -376,6 +376,7 @@ class SmsSender {
         case 'sent':
           {
             _sentMessages[id].state = SmsMessageState.Sent;
+            _deliveredStreamController.add(_sentMessages[id]);
             break;
           }
         case 'delivered':
