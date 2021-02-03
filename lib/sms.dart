@@ -363,8 +363,7 @@ class SmsSender {
 
   /// Create a stream that sender delivery SMS
   Stream<SmsMessage> get onSmsDelivered {
-    return onSmsDelivered;
-
+    return _deliveredStreamController.stream;
   }
 
   //Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
