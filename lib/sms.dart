@@ -40,7 +40,7 @@ class SmsMessage implements Comparable<SmsMessage> {
   StreamController<SmsMessageState> _stateStreamController =
       new StreamController<SmsMessageState>();
 
-  SmsMessage(this._address, this._body,_smsId,
+  SmsMessage(this._address, this._body,this._smsId,
       {int id,
       int threadId,
       bool read,
