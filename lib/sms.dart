@@ -362,12 +362,13 @@ class SmsSender {
   }
 
   /// Create a stream that sender delivery SMS
+   /*
   Stream<SmsMessage> get onSmsDelivered {
     print('Creating sms sender listener');
     return _deliveredStreamController.stream;
   }
-
-  //Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
+*/
+  Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
 
   void _onSmsStateChanged(dynamic stateChange) {
     int id = stateChange['sentId'];
