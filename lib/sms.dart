@@ -371,7 +371,7 @@ class SmsSender {
   Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
 
   Future _onSmsStateChanged(dynamic stateChange) async {
-    int id = stateChange['sentId'] - 1;
+    int id = stateChange['sentId'];
     if (_sentMessages.containsKey(id)) {
       switch (stateChange['state']) {
         case 'sent':
