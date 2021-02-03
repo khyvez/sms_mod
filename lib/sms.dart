@@ -362,9 +362,9 @@ class SmsSender {
   }
 
   /// Create a stream that sender delivery SMS
-  Stream<SmsMessage> get onSmsDelivered {
+  Future<Stream<SmsMessage>> get onSmsDelivered async {
     print('Creating sms sender listener');
-    return _deliveredStreamController.stream;
+    return await _deliveredStreamController.stream;
   }
 
   //Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
