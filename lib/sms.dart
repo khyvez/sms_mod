@@ -362,9 +362,9 @@ class SmsSender {
   }
 
   /// Create a stream that sender delivery SMS
-  Future<Stream<SmsMessage>> get onSmsDelivered async {
+  Stream<SmsMessage> get onSmsDelivered {
     print('Creating sms sender listener');
-    return await _deliveredStreamController.stream;
+    return _deliveredStreamController.stream;
   }
 
   //Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
@@ -382,7 +382,7 @@ class SmsSender {
         case 'delivered':
           {
             _sentMessages[id].state = SmsMessageState.Delivered;
-            _deliveredStreamController.add(_sentMessages[id]);
+           // _deliveredStreamController.add(_sentMessages[id]);
             _sentMessages.remove(id);
             break;
           }
