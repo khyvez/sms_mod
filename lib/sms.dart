@@ -349,7 +349,7 @@ class SmsSender {
     if (simCard != null) {
       map['subId'] = simCard.slot;
     }
-    this._sentId += 1;
+    this._sentId = msg.smsId;
 
     if (simCard != null) {
       map['simCard'] = simCard.imei;
@@ -371,7 +371,9 @@ class SmsSender {
   Stream<SmsMessage> get onSmsDelivered => _deliveredStreamController.stream;
 
   Future _onSmsStateChanged(dynamic stateChange) async {
+
     int id = stateChange['sentId'];
+    
     if (_sentMessages.containsKey(id)) {
       switch (stateChange['state']) {
         case 'sent':
