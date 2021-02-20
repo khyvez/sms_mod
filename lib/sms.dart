@@ -345,7 +345,8 @@ class SmsSender {
     msg.state = SmsMessageState.Sending;
     Map map = msg.toMap;
     this._sentMessages.putIfAbsent(this._sentId, () => msg);
-    map['sentId'] = this._sentId;
+
+    map['sentId'] = msg.smsId;
     if (simCard != null) {
       map['subId'] = simCard.slot;
     }
@@ -373,7 +374,7 @@ class SmsSender {
   Future _onSmsStateChanged(dynamic stateChange) async {
 
     int id = stateChange['sentId'];
-    
+  
     if (_sentMessages.containsKey(id)) {
       switch (stateChange['state']) {
         case 'sent':
